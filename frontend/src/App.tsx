@@ -12,7 +12,7 @@ const Contact = React.lazy(() => import('./pages/Contact'));
 
 const App: React.FC = () => {
   return (
-    <Router>
+    <Router basename="/emresevimportfolio">
       <Layout>
         <React.Suspense fallback={<div>Loading...</div>}>
           <Routes>
