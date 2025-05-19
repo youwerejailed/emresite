@@ -11,11 +11,8 @@ const Skills = React.lazy(() => import('./pages/Skills'));
 const Contact = React.lazy(() => import('./pages/Contact'));
 
 const App: React.FC = () => {
-  // Use basename only in production (GitHub Pages)
-  const basename = process.env.NODE_ENV === 'production' ? '/emresevimportfolio' : '';
-
   return (
-    <Router basename={basename}>
+    <Router>
       <Layout>
         <React.Suspense fallback={<div>Loading...</div>}>
           <Routes>
