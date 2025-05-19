@@ -1,45 +1,36 @@
 {
   "version": 2,
-  "builds": [
-    {
-      "src": "frontend/package.json",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "build"
-      }
-    }
-  ],
+  "buildCommand": "cd frontend && npm run build",
+  "outputDirectory": "frontend/build",
+  "framework": "create-react-app",
   "routes": [
     {
-      "handle": "filesystem"
+      "src": "^/static/(.*)",
+      "dest": "/static/$1"
     },
     {
-      "src": "/assets/(.*)",
-      "dest": "/frontend/build/assets/$1"
+      "src": "^/assets/(.*)",
+      "dest": "/assets/$1"
     },
     {
-      "src": "/static/(.*)",
-      "dest": "/frontend/build/static/$1"
+      "src": "^/favicon.ico",
+      "dest": "/favicon.ico"
     },
     {
-      "src": "/favicon.ico",
-      "dest": "/frontend/build/favicon.ico"
+      "src": "^/manifest.json",
+      "dest": "/manifest.json"
     },
     {
-      "src": "/manifest.json",
-      "dest": "/frontend/build/manifest.json"
+      "src": "^/logo192.png",
+      "dest": "/logo192.png"
     },
     {
-      "src": "/logo192.png",
-      "dest": "/frontend/build/logo192.png"
+      "src": "^/logo512.png",
+      "dest": "/logo512.png"
     },
     {
-      "src": "/logo512.png",
-      "dest": "/frontend/build/logo512.png"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/frontend/build/index.html"
+      "src": "^/(.*)",
+      "dest": "/index.html"
     }
   ]
 } 
